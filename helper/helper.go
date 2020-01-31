@@ -4,6 +4,8 @@ import (
 	"bytes"
 )
 
+// AES padding
+
 func PKCS7Padding(ciphertext []byte, blockSize int) []byte {
 	padding := blockSize - len(ciphertext)%blockSize
 	padtext := bytes.Repeat([]byte{byte(padding)}, padding)
@@ -15,6 +17,8 @@ func PKCS7UnPadding(origData []byte) []byte {
 	unpadding := int(origData[length-1])
 	return origData[:(length - unpadding)]
 }
+
+// 错误监听
 
 var ErrorCBHub = []func(err error){}
 

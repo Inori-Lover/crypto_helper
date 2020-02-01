@@ -13,11 +13,11 @@ type decryption struct{}
 var Decryption = decryption{}
 
 // Default is AES_CTR_256
-func (c *decryption) Default(ciphertext []byte, key [32]byte) []byte {
-	return c.AES_CTR_256(ciphertext, key)
+func Default(ciphertext []byte, key [32]byte) []byte {
+	return AES_CTR_256(ciphertext, key)
 }
 
-func (c *decryption) aesCBC(ciphertext []byte, key []byte) []byte {
+func aesCBC(ciphertext []byte, key []byte) []byte {
 	block, err := aes.NewCipher(key)
 	if err != nil {
 		helper.PublishError(err)
@@ -40,17 +40,17 @@ func (c *decryption) aesCBC(ciphertext []byte, key []byte) []byte {
 	return plaintext
 }
 
-func (c *decryption) AES_CBC_128(ciphertext []byte, key [16]byte) []byte {
-	return c.aesCBC(ciphertext, key[:])
+func AES_CBC_128(ciphertext []byte, key [16]byte) []byte {
+	return aesCBC(ciphertext, key[:])
 }
-func (c *decryption) AES_CBC_192(ciphertext []byte, key [24]byte) []byte {
-	return c.aesCBC(ciphertext, key[:])
+func AES_CBC_192(ciphertext []byte, key [24]byte) []byte {
+	return aesCBC(ciphertext, key[:])
 }
-func (c *decryption) AES_CBC_256(ciphertext []byte, key [32]byte) []byte {
-	return c.aesCBC(ciphertext, key[:])
+func AES_CBC_256(ciphertext []byte, key [32]byte) []byte {
+	return aesCBC(ciphertext, key[:])
 }
 
-func (c *decryption) aesCTR(ciphertext []byte, key []byte) []byte {
+func aesCTR(ciphertext []byte, key []byte) []byte {
 	block, err := aes.NewCipher(key)
 	if err != nil {
 		helper.PublishError(err)
@@ -69,17 +69,17 @@ func (c *decryption) aesCTR(ciphertext []byte, key []byte) []byte {
 	return plaintext
 }
 
-func (c *decryption) AES_CTR_128(ciphertext []byte, key [16]byte) []byte {
-	return c.aesCTR(ciphertext, key[:])
+func AES_CTR_128(ciphertext []byte, key [16]byte) []byte {
+	return aesCTR(ciphertext, key[:])
 }
-func (c *decryption) AES_CTR_192(ciphertext []byte, key [24]byte) []byte {
-	return c.aesCTR(ciphertext, key[:])
+func AES_CTR_192(ciphertext []byte, key [24]byte) []byte {
+	return aesCTR(ciphertext, key[:])
 }
-func (c *decryption) AES_CTR_256(ciphertext []byte, key [32]byte) []byte {
-	return c.aesCTR(ciphertext, key[:])
+func AES_CTR_256(ciphertext []byte, key [32]byte) []byte {
+	return aesCTR(ciphertext, key[:])
 }
 
-func (c *decryption) aesGCM(ciphertext []byte, key []byte) []byte {
+func aesGCM(ciphertext []byte, key []byte) []byte {
 	block, err := aes.NewCipher(key)
 	if err != nil {
 		helper.PublishError(err)
@@ -106,12 +106,12 @@ func (c *decryption) aesGCM(ciphertext []byte, key []byte) []byte {
 	return plaintext
 }
 
-func (c *decryption) AES_GCM_128(ciphertext []byte, key [16]byte) []byte {
-	return c.aesGCM(ciphertext, key[:])
+func AES_GCM_128(ciphertext []byte, key [16]byte) []byte {
+	return aesGCM(ciphertext, key[:])
 }
-func (c *decryption) AES_GCM_192(ciphertext []byte, key [24]byte) []byte {
-	return c.aesGCM(ciphertext, key[:])
+func AES_GCM_192(ciphertext []byte, key [24]byte) []byte {
+	return aesGCM(ciphertext, key[:])
 }
-func (c *decryption) AES_GCM_256(ciphertext []byte, key [32]byte) []byte {
-	return c.aesGCM(ciphertext, key[:])
+func AES_GCM_256(ciphertext []byte, key [32]byte) []byte {
+	return aesGCM(ciphertext, key[:])
 }

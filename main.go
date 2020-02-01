@@ -32,10 +32,10 @@ func main() {
 	fmt.Println("============= key")
 	fmt.Println(key)
 	fmt.Println("============= 加密")
-	ciphertext := encryption.Encryption.Default(plaintext, key)
+	ciphertext := encryption.Default(plaintext, key)
 	fmt.Println(ciphertext)
 	fmt.Println("============= 解密")
-	fmt.Println(decryption.Decryption.Default(ciphertext, key))
+	fmt.Println(decryption.Default(ciphertext, key))
 	fmt.Println("============= 加密 == 解密")
-	fmt.Println(bytes.Equal(plaintext, decryption.Decryption.Default(ciphertext, key)))
+	fmt.Println(bytes.Equal(plaintext, decryption.Default(ciphertext, key)))
 }

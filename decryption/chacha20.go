@@ -1,4 +1,4 @@
-package encryption
+package decryption
 
 import (
 	"golang.org/x/crypto/chacha20"

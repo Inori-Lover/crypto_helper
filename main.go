@@ -7,6 +7,7 @@ import (
 	"crypto_helper/decryption"
 	"crypto_helper/encryption"
 	"crypto_helper/helper"
+	"crypto_helper/passwordHash"
 )
 
 // 为什么创建这个库
@@ -38,4 +39,13 @@ func main() {
 	fmt.Println(decryption.Default(ciphertext, key))
 	fmt.Println("============= 加密 == 解密")
 	fmt.Println(bytes.Equal(plaintext, decryption.Default(ciphertext, key)))
+
+	fmt.Println("============= 密码")
+	fmt.Println(plaintext)
+	fmt.Println("============= 密码hash")
+	hash := passwordHash.Hash(plaintext)
+	fmt.Println(hash)
+
+	fmt.Println("============= 密码hash比对")
+	fmt.Println(passwordHash.Argon2Check(plaintext, hash))
 }

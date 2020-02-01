@@ -33,3 +33,5 @@ func PublishError(err error) {
 		}(cb)
 	}
 }
+
+// 序列化相关

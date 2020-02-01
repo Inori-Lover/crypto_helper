@@ -8,11 +8,6 @@ import (
 	"crypto_helper/helper"
 )
 
-// Default is AES_CTR_256
-func Default(plaintext []byte, key [32]byte) []byte {
-	return AES_CTR_256(plaintext, key)
-}
-
 func aesCBC(plaintext []byte, key []byte) []byte {
 	block, err := aes.NewCipher(key)
 	if err != nil {
@@ -76,7 +71,7 @@ func aesGCM(plaintext []byte, key []byte) []byte {
 		return []byte{}
 	}
 
-	// AES_GCM 的 最佳iv长度 永远是 12
+	// AES_GCM 的 最佳iv长度 永远是 12 字节
 	// Never use more than 2^32 random nonces with a given key because of the risk of a repeat.
 	iv := hash.BLAKE_2(plaintext)[:12]
 

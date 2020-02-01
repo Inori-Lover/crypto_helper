@@ -19,9 +19,9 @@ func xChacha20(plaintext []byte, key []byte) []byte {
 	ciphertext := make([]byte, len(plaintext))
 	mode.XORKeyStream(ciphertext, plaintext)
 
-	return ciphertext
+	return append(iv, ciphertext...)
 }
-func XChacha20(plaintext []byte, key [32]byte) []byte {
+func XChacha20(plaintext []byte, key [chacha20.KeySize]byte) []byte {
 	return xChacha20(plaintext, key[:])
 }
 
@@ -36,8 +36,8 @@ func xChacha20poly1305(plaintext []byte, key []byte) []byte {
 
 	ciphertext := aead.Seal(nil, iv, plaintext, nil)
 
-	return ciphertext
+	return append(iv, ciphertext...)
 }
-func XChacha20poly1305(plaintext []byte, key [32]byte) []byte {
+func XChacha20poly1305(plaintext []byte, key [chacha20poly1305.KeySize]byte) []byte {
 	return xChacha20poly1305(plaintext, key[:])
 }

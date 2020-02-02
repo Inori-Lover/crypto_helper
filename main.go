@@ -1,13 +1,7 @@
 package main
 
 import (
-	"bytes"
-	"fmt"
-
-	"crypto_helper/decryption"
-	"crypto_helper/encryption"
 	"crypto_helper/helper"
-	"crypto_helper/passwordHash"
 )
 
 // 为什么创建这个库
@@ -20,32 +14,32 @@ func AddErrorCB(cb func(err error)) {
 }
 
 func main() {
-	AddErrorCB(func(err error) {
-		fmt.Println("crypto.helper err:", err)
-	})
+	// AddErrorCB(func(err error) {
+	// 	fmt.Println("crypto.helper err:", err)
+	// })
 
-	plaintext := []byte("hello")
-	key := [32]byte{12, 34, 123, 13, 3, 4, 5, 6, 63, 7, 8, 88}
+	// plaintext := []byte("hello")
+	// key := [32]byte{12, 34, 123, 13, 3, 4, 5, 6, 63, 7, 8, 88}
 
-	fmt.Println("begin")
-	fmt.Println("============= 原文")
-	fmt.Println(plaintext)
-	fmt.Println("============= key")
-	fmt.Println(key)
-	fmt.Println("============= 加密")
-	ciphertext := encryption.Default(plaintext, key)
-	fmt.Println(ciphertext)
-	fmt.Println("============= 解密")
-	fmt.Println(decryption.Default(ciphertext, key))
-	fmt.Println("============= 加密 == 解密")
-	fmt.Println(bytes.Equal(plaintext, decryption.Default(ciphertext, key)))
+	// fmt.Println("begin")
+	// fmt.Println("============= 原文")
+	// fmt.Println(plaintext)
+	// fmt.Println("============= key")
+	// fmt.Println(key)
+	// fmt.Println("============= 加密")
+	// ciphertext := encryption.Default(plaintext, key)
+	// fmt.Println(ciphertext)
+	// fmt.Println("============= 解密")
+	// fmt.Println(decryption.Default(ciphertext, key))
+	// fmt.Println("============= 加密 == 解密")
+	// fmt.Println(bytes.Equal(plaintext, decryption.Default(ciphertext, key)))
 
-	fmt.Println("============= 密码")
-	fmt.Println(plaintext)
-	fmt.Println("============= 密码hash")
-	hash := passwordHash.Hash(plaintext)
-	fmt.Println(hash)
+	// fmt.Println("============= 密码")
+	// fmt.Println(plaintext)
+	// fmt.Println("============= 密码hash")
+	// hash := passwordHash.Hash(plaintext)
+	// fmt.Println(hash)
 
-	fmt.Println("============= 密码hash比对")
-	fmt.Println(passwordHash.Argon2Check(plaintext, hash))
+	// fmt.Println("============= 密码hash比对")
+	// fmt.Println(passwordHash.Argon2Check(plaintext, hash))
 }

@@ -11,5 +11,5 @@
 5. 通过callback统一监听错误
 
 ## TODO
-[ ] test
-[ ] 序列化
+- test
+- 序列化

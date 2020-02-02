@@ -9,6 +9,7 @@ import (
 // 2. IV的选取策略令人迷惑，并非所有人都知道IV的目的是什么
 // 3. 并没有人简单知道自己可以选什么类型的加密、hash等
 
+// AddErrorCB 添加错误监听callback
 func AddErrorCB(cb func(err error)) {
 	helper.AddErrorCB(cb)
 }

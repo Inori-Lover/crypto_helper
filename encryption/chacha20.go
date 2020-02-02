@@ -9,7 +9,7 @@ import (
 )
 
 func xChacha20(plaintext []byte, key []byte) []byte {
-	iv := hash.BLAKE_2(plaintext)[:chacha20.NonceSizeX]
+	iv := hash.Blake2(plaintext)[:chacha20.NonceSizeX]
 	mode, err := chacha20.NewUnauthenticatedCipher(key, iv)
 	if err != nil {
 		helper.PublishError(err)
@@ -21,6 +21,8 @@ func xChacha20(plaintext []byte, key []byte) []byte {
 
 	return append(iv, ciphertext...)
 }
+
+// XChacha20 ...
 func XChacha20(plaintext []byte, key [chacha20.KeySize]byte) []byte {
 	return xChacha20(plaintext, key[:])
 }
@@ -32,12 +34,14 @@ func xChacha20poly1305(plaintext []byte, key []byte) []byte {
 		return []byte{}
 	}
 
-	iv := hash.BLAKE_2(plaintext)[:chacha20poly1305.NonceSizeX]
+	iv := hash.Blake2(plaintext)[:chacha20poly1305.NonceSizeX]
 
 	ciphertext := aead.Seal(nil, iv, plaintext, nil)
 
 	return append(iv, ciphertext...)
 }
+
+// XChacha20poly1305 ...
 func XChacha20poly1305(plaintext []byte, key [chacha20poly1305.KeySize]byte) []byte {
 	return xChacha20poly1305(plaintext, key[:])
 }

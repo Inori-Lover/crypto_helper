@@ -34,6 +34,8 @@ func argon2(plaintext []byte) []byte {
 
 	return append(salt, ciphertext...)
 }
+
+// Argon2 密码hash
 func Argon2(plaintext []byte) []byte {
 	return argon2(plaintext)
 }
@@ -56,6 +58,8 @@ func argon2Check(plaintext []byte, ciphertext []byte) bool {
 		),
 	)
 }
+
+// Argon2Check 密码hash比对
 func Argon2Check(password []byte, hash []byte) bool {
 	return argon2Check(password, hash)
 }

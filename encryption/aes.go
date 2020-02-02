@@ -18,7 +18,7 @@ func aesCBC(plaintext []byte, key []byte) []byte {
 	blockSize := block.BlockSize()
 
 	plaintext = helper.PKCS7Padding(plaintext, blockSize)
-	iv := hash.BLAKE_2(plaintext)[:blockSize]
+	iv := hash.Blake2(plaintext)[:blockSize]
 
 	ciphertext := make([]byte, len(plaintext))
 	mode := cipher.NewCBCEncrypter(block, iv)
@@ -27,13 +27,18 @@ func aesCBC(plaintext []byte, key []byte) []byte {
 	return append(iv, ciphertext...)
 }
 
-func AES_CBC_128(plaintext []byte, key [16]byte) []byte {
+// AesCbc128 ...
+func AesCbc128(plaintext []byte, key [16]byte) []byte {
 	return aesCBC(plaintext, key[:])
 }
-func AES_CBC_192(plaintext []byte, key [24]byte) []byte {
+
+// AesCbc192 ...
+func AesCbc192(plaintext []byte, key [24]byte) []byte {
 	return aesCBC(plaintext, key[:])
 }
-func AES_CBC_256(plaintext []byte, key [32]byte) []byte {
+
+// AesCbc256 ...
+func AesCbc256(plaintext []byte, key [32]byte) []byte {
 	return aesCBC(plaintext, key[:])
 }
 
@@ -46,7 +51,7 @@ func aesCTR(plaintext []byte, key []byte) []byte {
 
 	blockSize := block.BlockSize()
 
-	iv := hash.BLAKE_2(plaintext)[:blockSize]
+	iv := hash.Blake2(plaintext)[:blockSize]
 
 	ciphertext := make([]byte, len(plaintext))
 	mode := cipher.NewCTR(block, iv)
@@ -54,13 +59,19 @@ func aesCTR(plaintext []byte, key []byte) []byte {
 
 	return append(iv, ciphertext...)
 }
-func AES_CTR_128(plaintext []byte, key [16]byte) []byte {
+
+// AesCtr128 ...
+func AesCtr128(plaintext []byte, key [16]byte) []byte {
 	return aesCTR(plaintext, key[:])
 }
-func AES_CTR_192(plaintext []byte, key [24]byte) []byte {
+
+// AesCtr192 ...
+func AesCtr192(plaintext []byte, key [24]byte) []byte {
 	return aesCTR(plaintext, key[:])
 }
-func AES_CTR_256(plaintext []byte, key [32]byte) []byte {
+
+// AesCtr256 ...
+func AesCtr256(plaintext []byte, key [32]byte) []byte {
 	return aesCTR(plaintext, key[:])
 }
 
@@ -73,7 +84,7 @@ func aesGCM(plaintext []byte, key []byte) []byte {
 
 	// AES_GCM 的 最佳iv长度 永远是 12 字节
 	// Never use more than 2^32 random nonces with a given key because of the risk of a repeat.
-	iv := hash.BLAKE_2(plaintext)[:12]
+	iv := hash.Blake2(plaintext)[:12]
 
 	aesgcm, err := cipher.NewGCM(block)
 	if err != nil {
@@ -84,12 +95,18 @@ func aesGCM(plaintext []byte, key []byte) []byte {
 
 	return append(iv, ciphertext...)
 }
-func AES_GCM_128(plaintext []byte, key [16]byte) []byte {
+
+// AesGcm128 ...
+func AesGcm128(plaintext []byte, key [16]byte) []byte {
 	return aesGCM(plaintext, key[:])
 }
-func AES_GCM_192(plaintext []byte, key [24]byte) []byte {
+
+// AesGcm192 ...
+func AesGcm192(plaintext []byte, key [24]byte) []byte {
 	return aesGCM(plaintext, key[:])
 }
-func AES_GCM_256(plaintext []byte, key [32]byte) []byte {
+
+// AesGcm256 ...
+func AesGcm256(plaintext []byte, key [32]byte) []byte {
 	return aesGCM(plaintext, key[:])
 }

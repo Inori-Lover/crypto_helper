@@ -30,13 +30,18 @@ func aesCBC(ciphertext []byte, key []byte) []byte {
 	return plaintext
 }
 
-func AES_CBC_128(ciphertext []byte, key [16]byte) []byte {
+// AesCbc128 ...
+func AesCbc128(ciphertext []byte, key [16]byte) []byte {
 	return aesCBC(ciphertext, key[:])
 }
-func AES_CBC_192(ciphertext []byte, key [24]byte) []byte {
+
+// AesCbc192 ...
+func AesCbc192(ciphertext []byte, key [24]byte) []byte {
 	return aesCBC(ciphertext, key[:])
 }
-func AES_CBC_256(ciphertext []byte, key [32]byte) []byte {
+
+// AesCbc256 ...
+func AesCbc256(ciphertext []byte, key [32]byte) []byte {
 	return aesCBC(ciphertext, key[:])
 }
 
@@ -59,13 +64,18 @@ func aesCTR(ciphertext []byte, key []byte) []byte {
 	return plaintext
 }
 
-func AES_CTR_128(ciphertext []byte, key [16]byte) []byte {
+// AesCtr128 ...
+func AesCtr128(ciphertext []byte, key [16]byte) []byte {
 	return aesCTR(ciphertext, key[:])
 }
-func AES_CTR_192(ciphertext []byte, key [24]byte) []byte {
+
+// AesCtr192 ...
+func AesCtr192(ciphertext []byte, key [24]byte) []byte {
 	return aesCTR(ciphertext, key[:])
 }
-func AES_CTR_256(ciphertext []byte, key [32]byte) []byte {
+
+// AesCtr256 ...
+func AesCtr256(ciphertext []byte, key [32]byte) []byte {
 	return aesCTR(ciphertext, key[:])
 }
 
@@ -96,12 +106,17 @@ func aesGCM(ciphertext []byte, key []byte) []byte {
 	return plaintext
 }
 
-func AES_GCM_128(ciphertext []byte, key [16]byte) []byte {
+// AesGcm128 ...
+func AesGcm128(ciphertext []byte, key [16]byte) []byte {
 	return aesGCM(ciphertext, key[:])
 }
-func AES_GCM_192(ciphertext []byte, key [24]byte) []byte {
+
+// AesGcm192 ...
+func AesGcm192(ciphertext []byte, key [24]byte) []byte {
 	return aesGCM(ciphertext, key[:])
 }
-func AES_GCM_256(ciphertext []byte, key [32]byte) []byte {
+
+// AesGcm256 ...
+func AesGcm256(ciphertext []byte, key [32]byte) []byte {
 	return aesGCM(ciphertext, key[:])
 }

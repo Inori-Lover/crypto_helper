@@ -22,6 +22,8 @@ func xChacha20(ciphertext []byte, key []byte) []byte {
 
 	return plaintext
 }
+
+// XChacha20 ...
 func XChacha20(ciphertext []byte, key [chacha20.KeySize]byte) []byte {
 	return xChacha20(ciphertext, key[:])
 }
@@ -44,6 +46,8 @@ func xChacha20poly1305(ciphertext []byte, key []byte) []byte {
 
 	return plaintext
 }
+
+// XChacha20poly1305 ...
 func XChacha20poly1305(ciphertext []byte, key [chacha20poly1305.KeySize]byte) []byte {
 	return xChacha20poly1305(ciphertext, key[:])
 }

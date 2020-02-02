@@ -38,9 +38,9 @@ func main() {
 	// fmt.Println("============= 密码")
 	// fmt.Println(plaintext)
 	// fmt.Println("============= 密码hash")
-	// hash := passwordHash.Hash(plaintext)
+	// hash := pwh.Hash(plaintext)
 	// fmt.Println(hash)
 
 	// fmt.Println("============= 密码hash比对")
-	// fmt.Println(passwordHash.Argon2Check(plaintext, hash))
+	// fmt.Println(pwh.Argon2Check(plaintext, hash))
 }

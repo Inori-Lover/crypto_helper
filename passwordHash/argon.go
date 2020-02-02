@@ -1,4 +1,4 @@
-package passwordHash
+package pwh
 
 import (
 	"bytes"

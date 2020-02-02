@@ -1,5 +1,6 @@
 {
   "go.useLanguageServer": true,
+  "go.autocompleteUnimportedPackages": true,
   "editor.fontFamily": "'JetBrains Mono Medium', Consolas, 'Courier New', monospace",
   "files.insertFinalNewline": true,
   "files.eol": "\n",

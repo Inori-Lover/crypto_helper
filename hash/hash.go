@@ -6,11 +6,6 @@ import (
 	"golang.org/x/crypto/blake2b"
 )
 
-// Default is BLAKE2
-func Default(plaintext []byte) (hashBytes []byte) {
-	return Blake2(plaintext)
-}
-
 // Blake2 i faster than md5 but as secure as sha2, forget md5 please
 func Blake2(plaintext []byte) (hashBytes []byte) {
 	// why 256: because aes max is 256

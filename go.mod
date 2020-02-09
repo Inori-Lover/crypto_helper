@@ -1,4 +1,4 @@
-module crypto_helper
+module github.com/Inori-Lover/crypto_helper
 
 go 1.13
 

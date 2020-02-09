@@ -4,7 +4,7 @@ import (
 	"golang.org/x/crypto/chacha20"
 	"golang.org/x/crypto/chacha20poly1305"
 
-	"crypto_helper/helper"
+	"github.com/Inori-Lover/crypto_helper/helper"
 )
 
 func xChacha20(ciphertext []byte, key []byte) []byte {

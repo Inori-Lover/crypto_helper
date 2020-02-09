@@ -3,7 +3,8 @@ package pwh
 import (
 	"bytes"
 	"crypto/rand"
-	"crypto_helper/helper"
+
+	"github.com/Inori-Lover/crypto_helper/helper"
 
 	argon "golang.org/x/crypto/argon2"
 )

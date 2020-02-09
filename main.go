@@ -1,7 +1,7 @@
 package main
 
 import (
-	"crypto_helper/helper"
+	"github.com/Inori-Lover/crypto_helper/helper"
 )
 
 // 为什么创建这个库

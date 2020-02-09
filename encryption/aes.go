@@ -4,8 +4,8 @@ import (
 	"crypto/aes"
 	"crypto/cipher"
 
-	"crypto_helper/hash"
-	"crypto_helper/helper"
+	"github.com/Inori-Lover/crypto_helper/hash"
+	"github.com/Inori-Lover/crypto_helper/helper"
 )
 
 func aesCBC(plaintext []byte, key []byte) []byte {
